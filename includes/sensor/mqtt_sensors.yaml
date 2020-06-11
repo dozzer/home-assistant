@@ -1,0 +1,64 @@
+  - platform: mqtt
+    name: "Street humidity"
+    state_topic: "weather/external/humidity"
+    unit_of_measurement: '%'
+    
+  - platform: mqtt
+    name: "Street  temperature"
+    state_topic: "weather/external/temperature"
+    unit_of_measurement: '°C'
+    
+    
+  - platform: mqtt
+    name: "Test temperature"
+    state_topic: "weather/internal/test/temperatureC"
+    unit_of_measurement: '°C'    
+    
+    
+  - platform: mqtt
+    name: "Test temperature"
+    state_topic: "test/temperatureC"
+    unit_of_measurement: '°C'
+    
+  - platform: mqtt
+    name: "Test temperature F"
+    state_topic: "test/temperatureF"
+    unit_of_measurement: '°F'
+    
+  - platform: mqtt
+    name: "Test Pressure"
+    state_topic: "test/pressure"
+    unit_of_measurement: 'hPa'
+    
+  - platform: mqtt
+    name: "Test Humidity"
+    state_topic: "test/humidity"
+    unit_of_measurement: 'RH'
+
+    
+  - platform: mqtt
+    name: "weather_internal"
+    state_topic: "homeassistant/weather/internal/state"    
+    
+  - platform: mqtt
+    name: "weather_external"
+    state_topic: "homeassistant/weather/external/state"
+    
+  - platform: mqtt
+    name: "Temperatura"
+    state_topic: "homeassistant/weather/external/state"
+    value_template: "{{ value_json.temperature_C | round(2) }}"
+    unit_of_measurement: "°C"    
+    
+    
+  - platform: mqtt
+    name: "weather_test_f"
+    state_topic: "homeassistant/weather/external/state"
+    value_template: "{{value_json.temperature_F}}"
+    unit_of_measurement: '°F'
+    
+  - platform: mqtt
+    name: "weather_test_c"
+    state_topic: "homeassistant/weather/external/state"
+    value_template: "{{value_json.temperature_C}}"
+    unit_of_measurement: '°C'

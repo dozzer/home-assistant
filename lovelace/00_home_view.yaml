@@ -1,0 +1,143 @@
+title: Главная
+path: main
+icon: mdi:home-assistant
+cards:
+    - type: vertical-stack
+      cards:
+        - type: markdown
+          content: >
+           **Текущее состояние**
+             
+        - type: entities
+          show_header_toggle: false
+          entities:
+            - entity: sensor.time
+              name: Текущее время
+              icon: mdi:clock-outline
+            - entity: sensor.date
+              name: Дата
+              icon: mdi:calendar-check-outline
+#  Weather 
+
+        - type: vertical-stack
+          cards: 
+                - entities:
+                  - entity: sun.sun
+                #   - entity: sensor.sunrise_time
+                #   - entity: sensor.sunset_time
+                  - entity: sensor.date
+                  - entity: sensor.time
+                  show_header_toggle: false
+                  type: entities
+                # - entity: weather.dark_sky
+                #   name: Outside weather
+                #   type: weather-forecast
+                  
+                # - entity: sensor.street_temperature
+                #   name: Outside temperature
+                #   icon: mdi:home-thermometer-outline
+                  
+                # - entities:
+                #     - entity: sensor.waqi_katraj_pune_pune_india
+                #   show_header_toggle: false
+                #   title: Air quality index
+                #   type: entities  
+
+        #   - type: history-graph
+        #     name: Outside weather
+        #     unit: '%'
+        #     entity: sensor.street_temperature
+            
+        - type: history-graph
+          entities:
+            - entity: sensor.test_temperature
+              name: Outside weather
+              hours_to_show: 12
+              
+        - type: history-graph
+          entities:
+            - entity: sensor.test_humidity
+              name: Outside humidity
+              hours_to_show: 12
+            
+
+    - type: vertical-stack
+      cards:
+        - type: markdown
+          content: >
+             **Графики** 
+
+        - type: horizontal-stack
+          cards:
+
+          - type: gauge
+            name: Загрузка CPU
+            unit: '%'
+            entity: sensor.processor_use
+            severity:
+                green: 0
+                yellow: 60
+                red: 85
+             
+          - type: gauge
+            name: Загрузка ОЗУ
+            unit: '%'
+            entity: sensor.memory_use_percent
+            severity:
+                green: 0
+                yellow: 60
+                red: 85
+                
+        - type: horizontal-stack
+          cards:
+
+          - type: gauge
+            name: Диск заполнен
+            unit: '%'
+            entity: sensor.disk_use_percent
+            severity:
+                green: 0
+                yellow: 60
+                red: 85    
+                
+          - type: gauge
+            name: Свободное место
+            unit: 'Гб'
+            entity: sensor.disk_free
+            severity:
+                red: 2
+                yellow: 6
+                green: 8
+                
+        - type: history-graph
+          entities:
+            - entity: sensor.maria_db_size
+              name: Maria DB
+                
+                
+        - type: custom:mini-graph-card
+          name: Street humidity
+          icon: mdi:water-percent
+          entities:
+            - entity: sensor.test_humidity
+            
+        - type: custom:mini-graph-card
+          name: Test temperature
+          icon: mdi:temperature-celsius
+          entities:
+            - entity: sensor.test_temperature      
+            
+        - type: horizontal-stack
+          cards:
+            - type: custom:mini-graph-card
+              entities:
+                - sensor.test_temperature
+              line_color: blue
+              line_width: 16
+              font_size: 75
+            - type: custom:mini-graph-card
+              entities:
+                - sensor.test_humidity
+              line_color: '#e74c3c'
+              line_width: 16
+              font_size: 75

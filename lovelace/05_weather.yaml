@@ -1,0 +1,91 @@
+title: Погода
+path: weather
+icon: mdi:weather-sunny
+cards:
+    - entity: weather.home_assistant
+      name: Погода на день
+      type: weather-forecast
+      
+    - type: entities
+      title: Текущая погода на улице
+      entities:
+          - sensor.street_temperature
+          - sensor.street_humidity
+#          - weather.home_assistant.temperature
+          
+    # - type: entities
+    #   title: Curent data
+    #   entities:
+    #   - sensor.temperature
+    #   - entity: sensor.street_temperature
+    #      name: Pressure
+    #      show_state: true
+    # - entity: sensor.street_temperature
+    #   name: Test
+    #   type: custom:mini-graph-card
+      
+   
+    - type: history-graph
+      entities:
+        - entity: sensor.street_temperature
+          name: Outside weather 1
+          hours_to_show: 1
+              
+    - type: history-graph
+      entities:
+        - entity: sensor.street_humidity
+          name: Outside humidity 1
+          hours_to_show: 1
+          
+    - type: history-graph
+      entities:
+        - entity: sensor.street_temperature
+          name: Outside weather 6
+          hours_to_show: 6
+              
+    - type: history-graph
+      entities:
+        - entity: sensor.street_humidity
+          name: Outside humidity 6
+          hours_to_show: 6
+          
+               
+    - type: history-graph
+      entities:
+        - entity: sensor.street_temperature
+          name: Outside weather 12
+          hours_to_show: 12
+              
+    - type: history-graph
+      entities:
+        - entity: sensor.street_humidity
+          name: Outside humidity 12
+          hours_to_show: 12
+          
+    - type: history-graph
+      entities:
+        - entity: sensor.street_temperature
+          name: Outside weather 24
+          hours_to_show: 24
+              
+    - type: history-graph
+      entities:
+        - entity: sensor.street_humidity
+          name: Outside humidity 24
+          hours_to_show: 24
+
+    # - entity: sensor.street_temperature
+    #   name: Outside weather
+    #   hours_to_show: 24
+          
+    # - entity: sensor.street_humidity
+    #   name: Outside humidity
+    #   hours_to_show: 24
+
+        
+              
+        # - type: history-graph
+        #   entities:
+        #     - entity: sensor.street_humidity
+        #       name: Outside humidity
+        #       hours_to_show: 24            

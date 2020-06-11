@@ -1,0 +1,46 @@
+title: Fitness
+path: fitness
+icon: 'mdi:walk'
+cards:
+    - entities:
+        - entity: sensor.vasiliy_steps
+        - entity: sensor.vasiliy_distance
+        - entity: sensor.vasiliy_calories
+        - entity: sensor.vasiliy_move_time
+        - entity: sensor.vasiliy_weight
+        - entity: sensor.vasiliy_height
+        # - entity: sensor.vasiliy_sleep_bedtime
+        # - entity: sensor.vasiliy_sleep_wake_up_time
+        # - entity: sensor.vasiliy_sleep
+        # - entity: sensor.vasiliy_heartrate
+      show_header_toggle: false
+      title: Google fit (Vasiliy)
+      type: entities
+
+    - entities:
+          - entity: sensor.alyona_steps
+          - entity: sensor.alyona_distance
+          - entity: sensor.alyona_calories
+          - entity: sensor.alyona_move_time          
+          - entity: sensor.alyona_height
+          - entity: sensor.alyona_weight
+        #   - entity: sensor.alyona_sleep
+        #   - entity: sensor.alyona_sleep_bedtime
+        #   - entity: sensor.alyona_sleep_wake_up_time
+      show_header_toggle: false
+      title: Google fit (Alyona)
+      type: entities
+    - type: sensor
+      entity: sensor.alyona_steps
+      graph: line
+      detail: 2
+      name: alyona steps
+      hours_to_show: 12
+
+    - type: sensor
+      entity: sensor.alyona_heartrate
+      graph: line
+      detail: 2
+      name: alyona heartrate
+      hours_to_show: 12      
+    

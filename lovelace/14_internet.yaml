@@ -1,0 +1,125 @@
+title: Internet
+path: internet
+icon: mdi:transit-connection-variant
+
+# # cards:
+# #     binary_sensor:
+# #       - platform: ping
+# #         host: 192.168.0.1
+
+# cards:
+
+#     - type: vertical-stack
+#       cards:
+#         - type: markdown
+#           content: >
+#           **Текущее состояние**
+             
+#         - type: entities
+#           show_header_toggle: false
+#           entities:
+#             - entity: binary_sensor.ping_8_8_8_8
+#               name: Ping 8.8.8.8 TODO
+#               icon: mdi:transit-connection-variant
+#             # - entity: binary_sensor.ping_8_8_8_8.round_trip_time_min
+#             #   name: round_trip_time_min
+#             #   icon: mdi:calendar-check-outline
+#         - type: vertical-stack
+#           cards: 
+#                 - entities:
+#                 #   - entity: binary_sensor.ping_8_8_8_8
+#                   - entity: binary_sensor.ping_8_8_8_8
+#                 #   - entity: binary_sensor.ping_8_8_8_8.round_trip_time_max
+#                 #   - entity: binary_sensor.ping_8_8_8_8.round_trip_time_avg
+#                 #   show_header_toggle: false
+#                 #   type: entities
+            
+cards:
+    - type: vertical-stack
+      cards:
+        - type: markdown
+          content: >
+           **Текущее состояние**
+             
+        # - type: custom:mini-graph-card
+        #   name: Speedtest
+        #   icon: mdi:speedometer
+        #   show:
+        #     extrema: true
+        #     labels: true
+        #     points: true
+        #   entities:
+        #     - entity: sensor.speedtest_download
+        #       name: Download
+        #       color: green
+        #     - entity: sensor.speedtest_upload
+        #       name: Upload
+        #       color: red
+        #     - entity: sensor.speedtest_ping
+        #       name: Ping
+        #       color: yellow
+             
+        - type: entities
+          show_header_toggle: false
+          entities:
+            - entity: sensor.time
+              name: Текущее время
+              icon: mdi:clock-outline
+            - entity: sensor.date
+              name: Дата
+              icon: mdi:calendar-check-outline
+#  Weather 
+
+        - type: vertical-stack
+          cards: 
+                - entities:
+                #   - entity: sun.sun
+                #   - entity: sensor.sunrise_time
+                #   - entity: sensor.sunset_time
+                  - entity: binary_sensor.ping_8_8_8_8
+                    name: Google server
+                  - entity: binary_sensor.test_android_my
+                    name: test_android_my
+                  - entity: binary_sensor.ping_gateway
+                    name: Gateway
+                  - entity: sensor.speedtest_ping
+                    name: speed test 
+                  show_header_toggle: false
+                  type: entities
+                # - entity: weather.dark_sky
+                #   name: Outside weather
+                #   type: weather-forecast
+                  
+                # - entity: sensor.street_temperature
+                #   name: Outside temperature
+                #   icon: mdi:home-thermometer-outline
+                  
+                # - entities:
+                #     - entity: sensor.waqi_katraj_pune_pune_india
+                #   show_header_toggle: false
+                #   title: Air quality index
+                #   type: entities  
+
+        #   - type: history-graph
+        #     name: Outside weather
+        #     unit: '%'
+        #     entity: sensor.street_temperature
+        
+    - type: custom:mini-graph-card
+      name: Speedtest
+      align_state: center
+      icon: mdi:speedometer
+      show:
+            extrema: true
+            labels: true
+            points: true
+      entities:
+            - entity: sensor.speedtest_download
+              name: Download
+              color: green
+            - entity: sensor.speedtest_upload
+              name: Upload
+              color: red
+            - entity: sensor.speedtest_ping
+              name: Ping
+              color: yellow

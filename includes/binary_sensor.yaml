@@ -1,0 +1,39 @@
+# ping:
+#   - platform: ping_arp
+#     count: 2
+#     # iface: eth0
+#     consider_home: 180
+#     hosts:
+#       ronald_gsm_ping_arp: 192.168.88.1
+
+# Example configuration.yaml entry to ping host 192.168.0.1 with 2 packets every 30 seconds.
+
+# binary_sensor:
+#   - platform: ping
+#     host: 192.168.0.1
+#     count: 2
+#     scan_interval: 30
+# # binary_sensor:
+#   - platform: ping
+#     name: ping_gateway
+#     host: 192.168.88.1
+#     count: 2
+#     scan_interval: 30
+
+- platform: ping
+  name: test_android_my
+  host: 192.168.88.118
+  count: 2
+  scan_interval: 30
+  
+- platform: ping
+  name: ping_8_8_8_8
+  host: 8.8.8.8
+  count: 2
+  scan_interval: 30
+    
+- platform: ping
+  name: ping_gateway
+  host: 192.168.88.1
+  count: 2
+  scan_interval: 30

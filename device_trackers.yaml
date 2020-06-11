@@ -1,0 +1,13 @@
+### Router Ping ###
+  - platform: ping
+    hosts:
+      google_ping: 8.8.8.8
+    #   gateway_ping: 192.168.88.1
+    #   lydias_ping: 192.168.86.XXX
+    #   mikes_ping: 192.168.86.XXX
+    #   megans_ping: 192.168.86.XXX
+    count: 2
+    
+    binary_sensor:
+        platform: ping
+        host: 192.168.88.1

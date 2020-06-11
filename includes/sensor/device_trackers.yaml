@@ -1,0 +1,9 @@
+# binary_sensor:
+#   - platform: ping
+#     hosts:
+#         google_ping: 8.8.8.8
+#     #   jakes_ping: 192.168.86.XXX
+#     #   lydias_ping: 192.168.86.XXX
+#     #   mikes_ping: 192.168.86.XXX
+#     #   megans_ping: 192.168.86.XXX
+#     count: 10

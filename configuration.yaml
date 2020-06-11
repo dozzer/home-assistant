@@ -1,0 +1,104 @@
+homeassistant:
+  name: My Smart Home
+  latitude: !secret latitude_coord
+  longitude: !secret longitude_coord
+  elevation: 214
+  unit_system: metric
+  time_zone: US/Michigan
+
+
+  
+speedtestdotnet:
+  server_id: 15476
+  scan_interval:
+    minutes: 30
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+    
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
+
+lovelace:
+  mode: yaml
+  
+hacs:
+  token: !secret HACS_github
+  appdaemon: true
+  python_script: true
+  theme: true
+  
+# Text to speech
+tts:
+  - platform: google_translate
+
+
+#group: !include groups.yaml
+#automation: !include automations.yaml
+#script: !include scripts.yaml
+#scene: !include scenes.yaml
+
+group: !include includes/groups.yaml
+automation: !include includes/automations.yaml
+script: !include includes/scripts.yaml
+scene: !include includes/scenes.yaml
+recorder: !include includes/recorder.yaml
+binary_sensor: !include includes/binary_sensor.yaml
+
+# device_tracker: !include device_trackers.yaml
+
+
+# device_tracker:
+#   - platform: ping
+#     hosts:
+#     #   hostone: 8.8.8.8
+#       hostone: 192.168.88.1
+      
+    
+
+#TODO https://github.com/hemantkamalakar/haconfigs/tree/master/lovelace
+
+#Вынос во внешние папки
+sensor: !include_dir_merge_list includes/sensor
+
+mqtt:
+  broker: core-mosquitto
+  discovery: true
+  discovery_prefix: homeassistant
+  username: mqtt
+  password: mqtt
+  
+  
+#https://github.com/Whilser/GyverLamp
+input_number:
+  speed:
+    name: Speed
+    initial: 30
+    min: 0
+    max: 255
+    step: 1
+
+  scale:
+    name: Scale
+    initial: 30
+    min: 1
+    max: 100
+    step: 1
+      
+webhook:
+    zigbee2mqtt_networkmap:
+   #topic: your topic (optional, default zigbee2mqtt)
+    panel_iframe:
+        networkmap:
+        title: 'Zigbee Map'
+        url: '/local/community/zigbee2mqtt_networkmap/map.html'
+        icon: 'mdi:graphql'
+      
+# sensor:
+#   - platform: mqtt
+#     state_topic: "weather/external/humidity"

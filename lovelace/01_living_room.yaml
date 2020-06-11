@@ -1,0 +1,24 @@
+title: Living room
+icon: mdi:sofa
+path: living_room
+cards:
+
+        
+    - type: custom:mini-media-player
+      entity: media_player.living_room_speaker
+      icon: mdi:spotify
+      artwork: cover
+    #   hide:
+    # volume: true
+    # source: true
+    # power_state: false        
+
+    - type: entities
+      entities:
+        - sensor.signal_strength_esp_f4be4a
+        - sensor.uptime_esp_f4be4a
+        
+    - type: light
+      entity: light.gyver_lamp_esp_f4be4a
+
+      
